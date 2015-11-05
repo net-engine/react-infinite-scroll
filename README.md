@@ -1,6 +1,10 @@
 React Infinite Scroll
 =====================
 
+This is a fork from [https://github.com/guillaumervls/react-infinite-scroll](https://github.com/guillaumervls/react-infinite-scroll) to make this compatible with React 0.14.
+
+We also published it on npm with the name `react-infinite-scroll2`.
+
 *React infinite scroll component*
 
 Demo: http://jsfiddle.net/mb9vJ/2
@@ -9,8 +13,10 @@ Demo: http://jsfiddle.net/mb9vJ/2
 
 ### Classic :
 
-The "ready to use" [script file](https://raw.github.com/guillaumervls/react-infinite-scroll/master/dist/react-infinite-scroll.min.js)
+The "ready to use" [script file](https://raw.github.com/net-engine/react-infinite-scroll/master/dist/react-infinite-scroll.min.js)
 is in the `dist` folder.
+
+Please make React and ReactDOM available first.
 
 Then :
 ```html
@@ -20,13 +26,15 @@ Then :
 </script>
 ```
 
+
+
 ### [Browserify](https://github.com/substack/node-browserify) :
 ̀
-Install : `npm install react-infinite-scroll`
+Install : `npm install react-infinite-scroll2`
 
 Then :
 ```javascript
-InfiniteScroll = require('react-infinite-scroll')(React);
+InfiniteScroll = require('react-infinite-scroll')(React, ReactDOM);
 ```
 
 ### Also works with AMD (e.g [RequireJS](http://requirejs.org))
@@ -65,6 +73,11 @@ In this case, it will depend on `react`.
 
 
 ## Changelog
+
+### v0.1.8
+
+Update to make it compatible with React 0.14
+Update package library version.
 
 ### v0.1.0
 

@@ -6,5 +6,5 @@ if (typeof define === 'function' && define.amd) {
   });
 } else {
   window.React.addons = window.React.addons || {};
-  window.React.addons.InfiniteScroll = reactInfiniteScroll(window.React);
+  window.React.addons.InfiniteScroll = reactInfiniteScroll(window.React, window.ReactDOM);
 }
