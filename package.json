@@ -1,10 +1,11 @@
 {
   "name": "react-infinite-scroll2",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "",
   "main": "src/react-infinite-scroll.js",
   "scripts": {
-    "test": "grunt lint"
+    "test": "grunt lint",
+    "dist": "grunt dist"
   },
   "repository": {
     "type": "git",
@@ -21,11 +22,12 @@
     "url": "https://github.com/net-engine/react-infinite-scroll/issues"
   },
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-jshint": "~0.11.3",
-    "grunt-contrib-uglify": "~0.10.0",
-    "grunt-contrib-clean": "~0.6.0",
     "browserify": "~12.0.1",
-    "grunt-browserify": "~4.0.1"
+    "grunt": "~0.4.1",
+    "grunt-browserify": "~4.0.1",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-clean": "~0.7.0",
+    "grunt-contrib-jshint": "~0.12.0",
+    "grunt-contrib-uglify": "~0.11.1"
   }
 }

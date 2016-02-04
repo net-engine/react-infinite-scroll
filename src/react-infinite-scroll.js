@@ -16,11 +16,14 @@ module.exports = function (React, ReactDOM) {
         pageStart: 0,
         hasMore: false,
         loadMore: function () {},
-        threshold: 250
+        threshold: 250,
+        scrollDocumentId: null
       };
     },
     componentDidMount: function () {
       this.pageLoaded = this.props.pageStart;
+
+      this.scrollDoc = this.props.scrollDocumentId ? document.getElementById(this.props.scrollDocumentId) : null;
       this.attachScrollListener();
     },
     componentDidUpdate: function () {
@@ -32,7 +35,13 @@ module.exports = function (React, ReactDOM) {
     },
     scrollListener: function () {
       var el = ReactDOM.findDOMNode(this);
-      var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+      var scrollTop;
+      if (this.scrollDoc) {
+        scrollTop = this.scrollDoc.scrollTop;
+      }
+      else {
+        scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+      }
       if (topPosition(el) + el.offsetHeight - scrollTop - window.innerHeight < Number(this.props.threshold)) {
         this.detachScrollListener();
         // call loadMore after detachScrollListener to allow
@@ -44,12 +53,15 @@ module.exports = function (React, ReactDOM) {
       if (!this.props.hasMore) {
         return;
       }
-      window.addEventListener('scroll', this.scrollListener);
+
+      var doc = this.scrollDoc || window;
+      doc.addEventListener('scroll', this.scrollListener);
       window.addEventListener('resize', this.scrollListener);
       this.scrollListener();
     },
     detachScrollListener: function () {
-      window.removeEventListener('scroll', this.scrollListener);
+      var doc = this.scrollDoc || window;
+      doc.removeEventListener('scroll', this.scrollListener);
       window.removeEventListener('resize', this.scrollListener);
     },
     componentWillUnmount: function () {

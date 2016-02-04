@@ -71,8 +71,15 @@ In this case, it will depend on `react`.
                 window's viewport that triggers the loading of new stuff -
                 *Defaults to `250`*
 
+- `scrollDocumentId` : The dom Id of the element which is keeping the scroll, if not defined, the component will use the document / window's scroll. -
+                *Defaults to `null`*
+
 
 ## Changelog
+
+### v0.1.9
+
+Add `scrollDocumentId`, the dom Id of the element which is keeping the scroll, if not defined, the component will use the document / window's scroll. By default it's null.
 
 ### v0.1.8
 
